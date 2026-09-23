@@ -16,132 +16,8 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#fdf8f6',
-                            100: '#f2e8e5',
-                            200: '#e8d5d0',
-                            300: '#d1b3ac',
-                            400: '#b88d84',
-                            500: '#9e6b61',
-                            600: '#855148',
-                            700: '#6e4139',
-                            800: '#5c3730',
-                            900: '#4e302b',
-                        },
-                        sage: {
-                            50: '#f4f6f4',
-                            100: '#e3e8e3',
-                            500: '#7a8f7d',
-                            700: '#4a5d4d',
-                        },
-                        blush: '#fcf0ed'
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .glass-header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-        }
-
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35)), url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* ---- Anchor links land below the fixed header ---- */
-        section[id],
-        footer[id] {
-            scroll-margin-top: 5rem;
-        }
-
-        /* ---- Desktop nav: current-section indicator ---- */
-        header nav a {
-            padding-bottom: 0.25rem;
-            border-bottom: 2px solid transparent;
-        }
-
-        header nav a.is-active {
-            color: #9e6b61;
-            border-bottom-color: #b88d84;
-        }
-
-        /* ---- Shared overlay behind cart / search / checkout ---- */
-        .layer-overlay {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .layer-overlay.is-open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* ---- Cart drawer (slides in from the right) ---- */
-        .drawer {
-            transform: translateX(100%);
-            visibility: hidden;
-            transition: transform 0.3s ease, visibility 0s linear 0.3s;
-        }
-
-        .drawer.is-open {
-            transform: translateX(0);
-            visibility: visible;
-            transition: transform 0.3s ease, visibility 0s;
-        }
-
-        /* ---- Centered modals (search, checkout) ---- */
-        .modal {
-            opacity: 0;
-            transform: translateY(12px);
-            visibility: hidden;
-            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
-        }
-
-        .modal.is-open {
-            opacity: 1;
-            transform: none;
-            visibility: visible;
-            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
-        }
-
-        /* ---- Small feedback animations ---- */
-        @keyframes badge-bump {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.4); }
-        }
-
-        .bump {
-            animation: badge-bump 0.3s ease;
-        }
-
-        @keyframes card-pulse {
-            0% { box-shadow: 0 0 0 0 rgba(158, 107, 97, 0.55); }
-            100% { box-shadow: 0 0 0 18px rgba(158, 107, 97, 0); }
-        }
-
-        .highlight-pulse {
-            animation: card-pulse 1s ease-out 2;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .drawer, .modal, .layer-overlay { transition: none; }
-            .bump, .highlight-pulse { animation: none; }
-        }
-    </style>
+    <script src="javascript/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="bg-brand-50 text-stone-800 font-sans antialiased flex flex-col min-h-screen">
@@ -748,7 +624,8 @@
     </div>
 
     <!-- JavaScript Logic -->
-    <script>
+    <script src="javascript/script.js"></script>
+    <script type="text/plain">
         /* =====================================================================
            Blossom & Bloom storefront
            1. Helpers   2. Catalog   3. Cart   4. Panels (open/close)
